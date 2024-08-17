@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Details</title>
+    <style>
+        div#maincontent {
+            height: 150px;
+            width: 500px;
+            border: 1px solid #CEE2FA;
+            text-align: left;
+            color: #08438E;
+            font-family: calibri;
+            font-size: 20;
+            padding: 5px;
+        }
+        div#heading {
+            text-decoration: bold;
+            text-align: center;
+            margin-top: 80px;
+            width: 500px;
+            border: 1px solid #CEE2FA;
+            text-align: center;
+            color: #08438E;
+            background-color: #CEE2FA;
+            font-family: calibri;
+            font-size: 20;
+            padding: 5px;
+        }
+        h4 {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="heading">
+            <b>Theatre Drama</b>
+        </div>
+        <div id="maincontent">
+            <h4>Your Ticket Details:</h4>
+            <br>
+            <script>
+                let seatbooked=4;
+                let cost;
+                let discount;
+                let total=0
+                let arr=[5,7,9,11]
+                cost=9
+                
+                if(seatbooked>=5)
+                {
+
+                    document.getElementById("maincontent").innerHTML=`<br><br>Seats to be booked are more than 5, booking is not allowed.</center>`;
+                }
+                else if(seatbooked<=2)
+                {
+                    if(seatbooked==0)
+                        document.getElementById("maincontent").innerHTML=`<br><br>Select appropriate no of seats`;
+                    else if(seatbooked==1)
+                    {
+                        total+=cost*seatbooked;
+                        document.getElementById("maincontent").innerHTML=`<br><br>Ticket Cost for a Customer : $${total}<br> `;
+                    }
+                    else    
+                    {
+                        total+=cost*seatbooked
+                        document.getElementById("maincontent").innerHTML=`Ticket Cost for 1 Customer : $${cost}<br>Ticket Cost for 2 Customer : $${cost}<br>
+                         For ${seatbooked} tickets you need to pay: $${total}<br> `;
+
+                    }
+
+                }
+                else
+                {
+                    details=``
+                    let str
+                    let value;
+                    for(let i=1;i<=seatbooked;i++)
+                    {
+                        value=arr[i-1]
+                        cost=9;
+                        discount = cost - (cost  * (arr[i - 1] / 100));
+                        str=`Ticket for ${i} Customer gets ${value}% discount! Cost is: ${discount}`
+                        details+=`${str}<br>`
+                        total+=discount
+                    }
+                    details+=`For ${seatbooked} tickets, you need to pay : $${total} instead of $${cost*seatbooked  }`
+                    document.getElementById("maincontent").innerHTML=details;
+
+                }
+            
+                
+
+
+            </script>
+        </div>
+    </center>
+</body>
+</html>
