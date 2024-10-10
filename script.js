@@ -33,7 +33,8 @@ console.log(variable)
 console.log( typeof convertednumber)
 console.log(convertednumber)
 
-console.log("\t\t\t\t\t")
+console.log("\t\t\t\t\t") //for space
+
 
 // to boolean
 
