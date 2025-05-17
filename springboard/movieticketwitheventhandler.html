@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Details</title>
+    <style>
+        div#maincontent {
+            height: 150px;
+            width: 500px;
+            border: 1px solid #CEE2FA;
+            text-align: left;
+            color: #08438E;
+            font-family: calibri;
+            font-size: 20;
+            padding: 5px;
+        }
+        div#heading {
+            text-decoration: bold;
+            text-align: center;
+            margin-top: 80px;
+            width: 500px;
+            border: 1px solid #CEE2FA;
+            text-align: center;
+            color: #08438E;
+            background-color: #CEE2FA;
+            font-family: calibri;
+            font-size: 20;
+            padding: 5px;
+        }
+        h4 {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="heading">
+            <b>Theatre Drama</b>
+        </div>
+        <div id="maincontent">
+            <h4>Your Ticket Details:</h4>
+            <br>
+            <script>
+
+                let seatbooked=prompt("enter no of seats to be booked");
+
+                calculatecost(seatbooked);
+               function calculatecost(seatbooked)
+                {
+                    let cost;
+                    cost=9
+
+                    details=`Cost per ticket is ${cost}<br>`
+
+
+
+                let discount;
+                let total=0
+                let arr=[5,7,9,11]
+
+                if(seatbooked>=5)
+                {
+                    details+=`<br><br>Seats to be booked are more than 5, booking is not allowed.<br>`
+                }
+                else if(seatbooked<=2)
+                {
+                    if(seatbooked==0)
+                        details+=`<br><br>Select appropriate no of seats`
+                    else if(seatbooked==1)
+                    {
+                        total+=cost*seatbooked;
+                        details+=`Total cost: ${total}`
+
+                    }
+                    else    
+                    {
+                        total+=cost*seatbooked
+                        details+=`Total cost: ${total}`
+
+                    }
+
+                }
+                else
+                {
+                    total=9*seatbooked;
+                    details+=`Total cost: ${total}`
+                }
+                
+                function calculatediscount(seatbooked)
+                {
+                    dis = 0;
+                    if (seatbooked <= 2 || seatbooked >= 5) {
+                        details += '<br><br>No discount applicable';
+                    } 
+                    else {
+                        for (let i = 1; i <= seatbooked; i++) {
+                            cost = 9;
+                            let discount = cost * (arr[i - 1] / 100);
+                            dis += discount; // ✅ Accumulate total discount for all seats
+                        }
+
+                        details += `<br>Congratulations! ${seatbooked} seats are eligible for discount. 
+                        <h1 onClick="alert('Total cost after applying discount is ${total - dis}')">Apply</h1>`;
+                        }
+                }
+                calculatediscount(seatbooked);
+                document.getElementById("maincontent").innerHTML=details;
+                }
+                
+
+            </script>
+        </div>
+    </center>
+</body>
+</html>

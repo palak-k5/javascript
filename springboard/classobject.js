@@ -18,3 +18,33 @@ class Car extends Vehicle {
 }
 let c = new Car("Hundai", "i10", "KA-016447", "Petrol"); // Creating a Car object 
 c.getDetails(); 
+
+
+
+class person{
+	constructor(name,age)
+	{
+		this.name=name;
+		this.age=age;
+
+	}
+
+}
+class Employee extends person{
+	 constructor(role,contact,name,age)
+	 {		
+		super(name,age);
+
+		this.role=role;
+		this.contact=contact;
+	 }
+	 getDetails()
+	 {
+		console.log(this.name);
+		console.log(this.age);
+		console.log(this.role);
+		console.log(this.contact);
+	 }
+}
+let obj=new Employee("engineer",9343791721,"palak",20);
+obj.getDetails();
